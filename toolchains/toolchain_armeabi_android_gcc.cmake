@@ -5,14 +5,18 @@ set ( CMAKE_SYSTEM_NAME Generic )
 
 set ( STATICLIB_TOOLCHAIN_DIR "SPECIFY_ME_I_AM_STATICLIB_TOOLCHAIN_DIR" CACHE STRING "toolchain dir" )
 
+set ( CMAKE_HOST arm-eabi-linux )
 set ( CMAKE_SYSROOT ${STATICLIB_TOOLCHAIN_DIR}/sysroot CACHE STRING "toolchain sysroot" )
 set ( STATICLIB_DEVROOT ${STATICLIB_TOOLCHAIN_DIR}/arm-linux-androideabi CACHE STRING "toolchain devroot" )
 
 set ( CMAKE_C_COMPILER ${STATICLIB_DEVROOT}/bin/gcc CACHE STRING "c compiler" )
 set ( CMAKE_CXX_COMPILER ${STATICLIB_DEVROOT}/bin/g++ CACHE STRING "c++ compiler" )
-set ( CMAKE_CXX_FLAGS "--std=c++11 -fPIC -Wall -Werror -Wextra -mthumb -DANDROID --sysroot=${CMAKE_SYSROOT}" CACHE STRING "compiler flags" )
-set ( CMAKE_CXX_FLAGS_DEBUG "-g -O0" CACHE STRING "compiler debug flags" )
-set ( CMAKE_CXX_FLAGS_RELEASE "-Os" CACHE STRING "compiler release flags" )
+set ( CMAKE_C_FLAGS "-fPIC -mthumb -DANDROID -mandroid --sysroot=${CMAKE_SYSROOT}" CACHE STRING "C compiler flags" )
+set ( CMAKE_C_FLAGS_DEBUG "-g -O0" CACHE STRING "C compiler debug flags" )
+set ( CMAKE_C_FLAGS_RELEASE "-Os" CACHE STRING "C compiler release flags" )
+set ( CMAKE_CXX_FLAGS "--std=c++11 -fPIC -Wall -Werror -Wextra -mthumb -DANDROID -mandroid --sysroot=${CMAKE_SYSROOT}" CACHE STRING "C++ compiler flags" )
+set ( CMAKE_CXX_FLAGS_DEBUG "-g -O0" CACHE STRING "C++ compiler debug flags" )
+set ( CMAKE_CXX_FLAGS_RELEASE "-Os" CACHE STRING "C++ compiler release flags" )
 set ( CMAKE_EXE_LINKER_FLAGS "-mthumb -DANDROID -mandroid" CACHE STRING "linker flags" )
 # todo: check whether required
 set ( CMAKE_SHARED_LIBRARY_LINK_C_FLAGS "" CACHE STRING "disable linker shared flags" )
