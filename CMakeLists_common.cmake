@@ -18,6 +18,6 @@ set ( STATICLIB_CXX_TEST_DIR test )
 # include all macros
 file ( GLOB_RECURSE STATICLIB_COMMON_MACROS 
     ${STATICLIB_PARENT_DIR}/staticlib_util_cmake/macros/*.cmake )
-foreach ( commonmacro ${STATICLIB_COMMON_MACROS} )
-    include ( ${commonmacro} )
-endforeach ( commonmacro ${STATICLIB_COMMON_MACROS} )
+foreach ( _commonmacro ${STATICLIB_COMMON_MACROS} )
+    include ( ${_commonmacro} )
+endforeach ( )

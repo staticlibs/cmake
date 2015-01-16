@@ -7,6 +7,6 @@ macro ( staticlib_enable_docs )
         configure_file ( ${STATICLIB_PARENT_DIR}/staticlib_util_cmake/doxygen/Doxyfile 
             ${CMAKE_BINARY_DIR}/Doxyfile )
         execute_process ( COMMAND doxygen ${CMAKE_BINARY_DIR}/Doxyfile )
-    endif ( STATICLIB_GENERATE_DOCS ) 
-endmacro ( staticlib_enable_docs )
+    endif ( ) 
+endmacro ( )
 

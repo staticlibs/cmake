@@ -17,10 +17,10 @@ macro ( staticlib_enable_testing _libs_var_name )
                 add_test ( ${testname} 
                         ${CMAKE_MEMORYCHECK_COMMAND} ${CMAKE_MEMORYCHECK_COMMAND_OPTIONS} 
                         ${CMAKE_BINARY_DIR}/${testname} )
-            else ( DEFINED CMAKE_MEMORYCHECK_COMMAND)
+            else ( )
                 add_test ( ${testname} ${CMAKE_BINARY_DIR}/${testname} )
-            endif ( DEFINED CMAKE_MEMORYCHECK_COMMAND )
-        endforeach ( testsourcefile ${${PROJECT_NAME}_TEST_SRC} )
-    endif ( NOT ${PROJECT_NAME}_has_parent AND NOT ${CMAKE_SYSTEM_NAME} MATCHES "Generic" )
-endmacro ( staticlib_enable_testing )
+            endif ( )
+        endforeach ( )
+    endif ( )
+endmacro ( )
 
