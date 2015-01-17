@@ -14,7 +14,7 @@ set ( CMAKE_CXX_COMPILER ${STATICLIB_DEVROOT}/bin/g++ CACHE STRING "c++ compiler
 set ( CMAKE_C_FLAGS "-fPIC -mthumb -DANDROID -mandroid --sysroot=${CMAKE_SYSROOT}" CACHE STRING "C compiler flags" )
 set ( CMAKE_C_FLAGS_DEBUG "-g -O0" CACHE STRING "C compiler debug flags" )
 set ( CMAKE_C_FLAGS_RELEASE "-Os" CACHE STRING "C compiler release flags" )
-set ( CMAKE_CXX_FLAGS "--std=c++11 -fPIC -fno-omit-frame-pointer -Wall -Werror -Wextra -mthumb -DANDROID -mandroid --sysroot=${CMAKE_SYSROOT}" CACHE STRING "C++ compiler flags" )
+set ( CMAKE_CXX_FLAGS "--std=c++11 -fPIC -Wall -Werror -Wextra -mthumb -DANDROID -mandroid --sysroot=${CMAKE_SYSROOT}" CACHE STRING "C++ compiler flags" )
 set ( CMAKE_CXX_FLAGS_DEBUG "-g -O0" CACHE STRING "C++ compiler debug flags" )
 set ( CMAKE_CXX_FLAGS_RELEASE "-Os" CACHE STRING "C++ compiler release flags" )
 set ( CMAKE_EXE_LINKER_FLAGS "-mthumb -DANDROID -mandroid" CACHE STRING "linker flags" )

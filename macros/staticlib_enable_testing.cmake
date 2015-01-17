@@ -5,13 +5,13 @@ macro ( staticlib_enable_testing _libs_var_name )
     get_directory_property(${PROJECT_NAME}_has_parent PARENT_DIRECTORY)
     if ( NOT ${PROJECT_NAME}_has_parent AND NOT ${CMAKE_SYSTEM_NAME} MATCHES "Generic" )
         enable_testing ( )
-        include_directories ( ${CMAKE_CURRENT_LIST_DIR}/${STATICLIB_CXX_TEST_DIR} )
+        include_directories ( ${CMAKE_CURRENT_LIST_DIR}/test )
         file ( GLOB ${PROJECT_NAME}_TEST_SRC
-                RELATIVE ${CMAKE_CURRENT_LIST_DIR}/${STATICLIB_CXX_TEST_DIR}
-                ${CMAKE_CURRENT_LIST_DIR}/${STATICLIB_CXX_TEST_DIR}/*${STATICLIB_CXX_TEST_POSTFIX} )
+                RELATIVE ${CMAKE_CURRENT_LIST_DIR}/test
+                ${CMAKE_CURRENT_LIST_DIR}/test/*_test.cpp )
         foreach ( testsourcefile ${${PROJECT_NAME}_TEST_SRC} )
-            string ( REPLACE ${STATICLIB_CXX_POSTFIX} "" testname ${testsourcefile} )
-            add_executable ( ${testname} ${CMAKE_CURRENT_LIST_DIR}/${STATICLIB_CXX_TEST_DIR}/${testsourcefile} )
+            string ( REPLACE .cpp "" testname ${testsourcefile} )
+            add_executable ( ${testname} ${CMAKE_CURRENT_LIST_DIR}/test/${testsourcefile} )
             target_link_libraries ( ${testname} ${${_libs_var_name}} )
             if ( DEFINED CMAKE_MEMORYCHECK_COMMAND )
                 add_test ( ${testname} 

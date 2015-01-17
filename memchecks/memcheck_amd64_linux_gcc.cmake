@@ -7,4 +7,5 @@ set ( CMAKE_MEMORYCHECK_COMMAND_OPTIONS
         --show-reachable=yes
         --track-origins=yes
         --error-exitcode=42
+        --track-fds=yes
     )
