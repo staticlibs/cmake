@@ -8,6 +8,7 @@ cmake_minimum_required ( VERSION 2.8 )
 # set ( ${PROJECT_NAME}_VERSION_MICRO 0 )
 
 OPTION ( BUILD_SHARED_LIBS "Build shared libraries." OFF )
+OPTION ( CMAKE_INCLUDE_DIRECTORIES_BEFORE "Prefer staticlibs libs over system ones." ON )
 # common variables
 #set ( STATICLIB_CXX_POSTFIX .cpp )
 #set ( STATICLIB_CXX_TEST_POSTFIX _test.cpp )
