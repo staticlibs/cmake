@@ -1,6 +1,6 @@
 
-cmake_minimum_required ( VERSION 2.8 )
-
+cmake_minimum_required ( VERSION 2.8.3 )
+# configures Doxyfile for current project and runs Doxygen using it 
 macro ( staticlib_enable_docs )
     option( STATICLIB_GENERATE_DOCS "generate docs" OFF )
     if ( STATICLIB_GENERATE_DOCS ) 
