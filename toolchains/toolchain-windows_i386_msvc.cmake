@@ -1,5 +1,5 @@
 
-cmake_minimum_required ( VERSION 2.8.3 )
+cmake_minimum_required ( VERSION 2.8.12 )
 
 set ( CMAKE_SYSTEM_NAME Windows CACHE INTERNAL "" )
 set ( CMAKE_C_COMPILER cl.exe CACHE INTERNAL "" )

@@ -1,5 +1,5 @@
 
-cmake_minimum_required ( VERSION 2.8.3 )
+cmake_minimum_required ( VERSION 2.8.12 )
 # collects test from 'test' directory (non-recursively) and register 
 # these test with ctest using memory checker (if available)
 macro ( staticlib_enable_testing _includes_var_name _libs_var_name )
@@ -13,7 +13,7 @@ macro ( staticlib_enable_testing _includes_var_name _libs_var_name )
     foreach ( _testsrc ${${PROJECT_NAME}_TEST_SRC} )
         string ( REPLACE .${${PROJECT_NAME}_CXX_EXTENSION} "" _testname ${_testsrc} )
         add_executable ( ${_testname} ${CMAKE_CURRENT_LIST_DIR}/test/${_testsrc} )
-        target_include_directories ( ${_testname} ${${_includes_var_name}} )
+        target_include_directories ( ${_testname} BEFORE PUBLIC ${${_includes_var_name}} )
         target_link_libraries ( ${_testname} ${${_libs_var_name}} )
         if ( DEFINED CMAKE_MEMORYCHECK_COMMAND )
             add_test ( ${_testname} 
@@ -24,4 +24,3 @@ macro ( staticlib_enable_testing _includes_var_name _libs_var_name )
         endif ( )
     endforeach ( )
 endmacro ( )
-
