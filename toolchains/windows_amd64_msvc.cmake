@@ -1,0 +1,14 @@
+
+cmake_minimum_required ( VERSION 2.8.12 )
+
+set ( CMAKE_BUILD_TYPE "Debug" CACHE STRING "Default build type" )
+
+set ( CMAKE_SYSTEM_NAME Windows )
+set ( CMAKE_C_COMPILER cl.exe )
+set ( CMAKE_CXX_COMPILER cl.exe )
+set ( CMAKE_C_FLAGS "" CACHE INTERNAL "" )
+set ( CMAKE_C_FLAGS_DEBUG "/D_DEBUG /Zi /Ob0 /Od" CACHE INTERNAL "" )
+set ( CMAKE_C_FLAGS_RELEASE "/Os /D NDEBUG" CACHE INTERNAL "" )
+set ( CMAKE_CXX_FLAGS "/W4 /WX /EHsc" CACHE INTERNAL "" )
+set ( CMAKE_CXX_FLAGS_DEBUG "/D_DEBUG /MDd /Zi /Ob0 /Od /RTC1" CACHE INTERNAL "" )
+set ( CMAKE_CXX_FLAGS_RELEASE "/MT /Os /D NDEBUG" CACHE INTERNAL "" )

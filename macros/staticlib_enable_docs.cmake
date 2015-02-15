@@ -9,4 +9,3 @@ macro ( staticlib_enable_docs )
         execute_process ( COMMAND doxygen ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile )
     endif ( ) 
 endmacro ( )
-
