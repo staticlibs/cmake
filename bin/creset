@@ -1,0 +1,7 @@
+#!/bin/bash
+if [ -d CMakeFiles ] ; then
+    cd ..
+    rm -rf build
+    mkdir build
+    cd build
+fi
