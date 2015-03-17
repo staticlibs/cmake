@@ -12,6 +12,7 @@ set ( IOS_SDKROOT ${IOS_DEVROOT}/SDKs/${IOS_PLATFORM}${IOS_SDK_VERSION}.sdk CACH
 set ( IOS_DEVTOOLS ${IOS_DEVELOPER}/Toolchains/XcodeDefault.xctoolchain/usr CACHE INTERNAL "" )
 
 set ( CMAKE_SYSTEM_NAME Generic )
+set ( UNIX 1 CACHE INTERNAL "" )
 set ( CMAKE_HOST i386-apple-darwin )
 set ( CMAKE_SYSROOT ${IOS_SDKROOT} CACHE INTERNAL "" )
 set ( CMAKE_C_COMPILER ${IOS_DEVELOPER}/usr/bin/gcc CACHE INTERNAL "" )
