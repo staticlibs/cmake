@@ -1,7 +1,7 @@
 CMake helper scripts for Staticlibs projects
 ============================================
 
-This project is part of [Staticlibs](http://staticlibs.net/).
+This project is a part of [Staticlibs](http://staticlibs.net/).
 
 This project contains [CMake](http://cmake.org/) scripts that are used by all 
 Staticlibs projects.
