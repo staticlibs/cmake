@@ -23,7 +23,9 @@ set ( CMAKE_C_FLAGS "" CACHE INTERNAL "" )
 set ( CMAKE_C_FLAGS_DEBUG "/D_DEBUG /Zi /Ob0 /Od" CACHE INTERNAL "" )
 set ( CMAKE_C_FLAGS_RELEASE "/Os /D NDEBUG" CACHE INTERNAL "" )
 set ( CMAKE_CXX_FLAGS "/W4 /WX /EHsc" CACHE INTERNAL "" )
-set ( CMAKE_CXX_FLAGS_DEBUG "/D_DEBUG /MDd /Zi /Ob0 /Od /RTC1" CACHE INTERNAL "" )
+# use the following flags with drmemory
+#set ( CMAKE_CXX_FLAGS_DEBUG "/D_DEBUG /MDd /Zi /Ob0 /Od /RTC1" CACHE INTERNAL "" )
+set ( CMAKE_CXX_FLAGS_DEBUG "/D_DEBUG /MTd /Zi /Ob0 /Od /RTC1" CACHE INTERNAL "" )
 set ( CMAKE_CXX_FLAGS_RELEASE "/MT /Os /D NDEBUG" CACHE INTERNAL "" )
 
 if ( EXISTS "C:/drmemory/bin/drmemory.exe" )
