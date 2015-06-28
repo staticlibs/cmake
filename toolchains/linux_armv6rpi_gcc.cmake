@@ -12,6 +12,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+# toolchain for linux: https://github.com/staticlibs/armv6-rpi-linux-gnueabi
+
 cmake_minimum_required ( VERSION 2.8.12 )
 
 set ( CMAKE_BUILD_TYPE "Debug" CACHE STRING "Default build type" )
