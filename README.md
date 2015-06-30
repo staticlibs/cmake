@@ -17,7 +17,7 @@ Toolchain must be specified explicitely for the CMake run for every Staticlibs p
 Toolchain specification is mandatory either in command line CMake argument or as a default
 value for `STATICLIB_TOOLCHAIN` variable in project configuration.
 
-Supported toolchains - [link](https://github.com/staticlibs/cmake/tree/master/toolchains).
+List of [supported toolchains](https://github.com/staticlibs/cmake/tree/master/toolchains).
 
 Default toolchain for all Staticlibs projects is `linux_amd64_gcc`.
 
