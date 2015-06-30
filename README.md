@@ -17,6 +17,8 @@ Toolchain must be specified explicitely for the CMake run for every Staticlibs p
 Toolchain specification is mandatory either in command line CMake argument or as a default
 value for `STATICLIB_TOOLCHAIN` variable in project configuration.
 
+Supported toolchains - [link](https://github.com/staticlibs/cmake/tree/master/toolchains).
+
 Default toolchain for all Staticlibs projects is `linux_amd64_gcc`.
 
 Macros
@@ -37,10 +39,10 @@ This project is released under the [Apache License 2.0](http://www.apache.org/li
 Changelog
 ---------
 
-**2015-06-28**
+**2015-06-30**
 
  * version 1.1.0
- * `linux_armeabi_gcc` toolchain added
+ * `linux_armcortexa7_gcc` toolchain added
  * `add_subdirectory` macro now requires path to dependency
 
 **2015-05-17**

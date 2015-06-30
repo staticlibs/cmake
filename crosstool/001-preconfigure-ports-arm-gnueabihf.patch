@@ -1,0 +1,11 @@
+--- eglibc-2_13/ports/sysdeps/arm/preconfigure.orig	2015-06-30 10:57:17.992878881 +0300
++++ eglibc-2_13/ports/sysdeps/arm/preconfigure	2015-06-30 10:58:58.112879726 +0300
+@@ -2,7 +2,7 @@
+ arm*)
+ 	base_machine=arm
+ 	case $config_os in
+-	linux-gnueabi)
++	linux-gnueabi*)
+ 		machine=arm/eabi/$machine
+ 		if [ "${CFLAGS+set}" != "set" ]; then
+ 		  CFLAGS="-g -O2"
