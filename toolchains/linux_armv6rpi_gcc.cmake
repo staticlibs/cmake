@@ -12,27 +12,27 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# toolchain for linux: https://github.com/staticlibs/armv6-rpi-linux-gnueabi
+# toolchain for linux: https://github.com/staticlibs/armv6-rpi-linux-gnueabihf
 
 cmake_minimum_required ( VERSION 2.8.12 )
 
 set ( CMAKE_BUILD_TYPE "Debug" CACHE STRING "Default build type" )
 
 set ( RASPBERRY_TOOLCHAIN_DIR "SPECIFY_ME_I_AM_RASPBERRY_TOOLCHAIN_DIR" CACHE STRING "toolchain dir" )
-set ( RASPBERRY_TOOLCHAIN_NAME armv6-rpi-linux-gnueabi CACHE INTERNAL "" )
+set ( RASPBERRY_TOOLCHAIN_NAME armv6-rpi-linux-gnueabihf CACHE INTERNAL "" )
 set ( RASPBERRY_DEVROOT ${RASPBERRY_TOOLCHAIN_DIR}/${RASPBERRY_TOOLCHAIN_NAME} CACHE INTERNAL "" )
 
 set ( CMAKE_SYSTEM_NAME Linux )
-set ( CMAKE_HOST armv6-rpi-linux-gnueabi )
+set ( CMAKE_HOST armv6-rpi-linux-gnueabihf )
 set ( CMAKE_SYSROOT ${RASPBERRY_DEVROOT}/sysroot CACHE INTERNAL "" )
 set ( CMAKE_C_COMPILER ${RASPBERRY_TOOLCHAIN_DIR}/bin/${RASPBERRY_TOOLCHAIN_NAME}-gcc CACHE INTERNAL "" )
 set ( CMAKE_CXX_COMPILER ${RASPBERRY_TOOLCHAIN_DIR}/bin/${RASPBERRY_TOOLCHAIN_NAME}-g++ CACHE INTERNAL "" )
 set ( CMAKE_C_FLAGS "-fPIC --sysroot=${CMAKE_SYSROOT}" CACHE INTERNAL "" )
 set ( CMAKE_C_FLAGS_DEBUG "-g -O0" CACHE INTERNAL "" )
-set ( CMAKE_C_FLAGS_RELEASE "-Os" CACHE INTERNAL "" )
+set ( CMAKE_C_FLAGS_RELEASE "-Os -DNDEBUG" CACHE INTERNAL "" )
 set ( CMAKE_CXX_FLAGS "--std=c++11 -fPIC -Wall -Werror -Wextra -D_GLIBCXX_USE_NANOSLEEP -Wno-psabi --sysroot=${CMAKE_SYSROOT}" CACHE INTERNAL "" )
 set ( CMAKE_CXX_FLAGS_DEBUG "-g -O0" CACHE INTERNAL "" )
-set ( CMAKE_CXX_FLAGS_RELEASE "-Os" CACHE INTERNAL "" )
+set ( CMAKE_CXX_FLAGS_RELEASE "-Os -DNDEBUG" CACHE INTERNAL "" )
 set ( CMAKE_AR ${RASPBERRY_DEVROOT}/bin/ar CACHE INTERNAL "" )
 set ( CMAKE_AS ${RASPBERRY_DEVROOT}/bin/as CACHE INTERNAL "" )
 set ( CMAKE_LD ${RASPBERRY_DEVROOT}/bin/ld CACHE INTERNAL "" )
