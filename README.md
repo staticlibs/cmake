@@ -39,6 +39,13 @@ This project is released under the [Apache License 2.0](http://www.apache.org/li
 Changelog
 ---------
 
+**2015-07-05**
+
+ * version 1.2.0
+ * hardfloat toolchain for Raspberry
+ * `NDEBUG` for all `Release` builds
+ * `creset` script for Windows
+
 **2015-06-30**
 
  * version 1.1.0
