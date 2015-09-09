@@ -13,14 +13,13 @@
 # limitations under the License.
 
 cmake_minimum_required ( VERSION 2.8.12 )
-# Configures Doxyfile for current project and runs Doxygen using it;
-# OFF by default,
-# to generate docs run: cmake with -DSTATICLIB_GENERATE_DOCS=ON
 
-macro ( staticlib_enable_docs )
-    option( STATICLIB_GENERATE_DOCS "generate docs" OFF )
-    if ( STATICLIB_GENERATE_DOCS ) 
-        configure_file ( ${STATICLIB_CMAKE}/doxygen/Doxyfile ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile )
-        execute_process ( COMMAND doxygen ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile )
-    endif ( ) 
+# enhanced version of pkg_check_modules macro with PKG_CONFIG_PATH logic
+# PKG_CONFIG_PATH handling through CMAKE_PREFIX_PATH was added in newer versions of CMake
+macro ( staticlib_pkg_check_modules _out_var_name _modifier _modules_list_var_name )
+    find_package ( PkgConfig )
+    set (_pkgconfig_path $ENV{PKG_CONFIG_PATH} )
+    set ( ENV{PKG_CONFIG_PATH} "${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/pkgconfig:$ENV{PKG_CONFIG_PATH}" )
+    pkg_check_modules ( ${_out_var_name} ${_modifier} ${${_modules_list_var_name}} )
+    set ( ENV{PKG_CONFIG_PATH} ${_pkgconfig_path} )
 endmacro ( )
