@@ -29,7 +29,7 @@ endif ( )
 
 # include all macros
 file ( GLOB_RECURSE STATICLIB_COMMON_MACROS 
-    ${STATICLIB_ROOT_SOURCE_DIR}/cmake/macros/*.cmake )
+    ${STATICLIB_CMAKE}/macros/*.cmake )
 foreach ( _commonmacro ${STATICLIB_COMMON_MACROS} )
     include ( ${_commonmacro} )
 endforeach ( )
