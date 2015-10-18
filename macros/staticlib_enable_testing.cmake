@@ -33,6 +33,7 @@ macro ( staticlib_enable_testing _includes_var_name _libs_var_name _opts_var_nam
             target_include_directories ( ${_testname} BEFORE PRIVATE ${${_includes_var_name}} )
             target_link_libraries ( ${_testname} ${${_libs_var_name}} )
             target_compile_options ( ${_testname} PRIVATE ${${_opts_var_name}} )
+            set_target_properties ( ${_testname} PROPERTIES FOLDER "test" )
             if ( DEFINED CMAKE_MEMORYCHECK_COMMAND )
                 add_test ( ${_testname} 
                         ${CMAKE_MEMORYCHECK_COMMAND} ${CMAKE_MEMORYCHECK_COMMAND_OPTIONS} 
