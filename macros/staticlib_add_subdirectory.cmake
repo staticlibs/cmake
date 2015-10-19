@@ -15,9 +15,10 @@
 cmake_minimum_required ( VERSION 2.8.12 )
 # call add_subdirectory using 'deps' prefix only if specified module is not yet added to main project
 
-macro ( staticlib_add_subdirectory _dep_path _dep_name )
-    if ( NOT TARGET ${_dep_name} )
-        message ( STATUS "Adding dependency: [${_dep_name}]" )
-        add_subdirectory ( ${_dep_path}/${_dep_name} ${STATICLIB_ROOT_BINARY_DIR}/${_dep_name} )
+macro ( staticlib_add_subdirectory _project_path )
+    string ( REGEX REPLACE "^.*/" "" _target_name ${_project_path} )
+    if ( NOT TARGET ${_target_name} )
+        message ( STATUS "Adding dependency: [${_target_name}], path: [${_project_path}]" )
+        add_subdirectory ( ${_project_path} ${STATICLIB_ROOT_BINARY_DIR}/${_target_name} )
     endif ( )
 endmacro ( )
