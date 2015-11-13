@@ -51,6 +51,11 @@ This project is released under the [Apache License 2.0](http://www.apache.org/li
 Changelog
 ---------
 
+**2015-11-13**
+
+ * version 1.3.1
+ * unify cmake lib and exec directory to `bin`
+
 **2015-10-20**
 
  * version 1.3.0
