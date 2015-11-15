@@ -14,12 +14,11 @@
 
 cmake_minimum_required ( VERSION 2.8.12 )
 
-# applies musl compatibility patch to ASIO 10.6
-# https://github.com/voidlinux/void-packages/blob/4d4449033e3caa02bc9f9f978c30ef6a79b573c4/srcpkgs/asio/patches/musl_strerror_r.patch
-macro ( staticlib_apply_asio106_musl_patch _asio_path _patch_path )
-    message ( STATUS "Applying patch: [${_patch_path}] to [${_asio_path}]" )
+# applies git patch to the specified project
+macro ( staticlib_apply_git_patch _gitdir_path _patch_path )
+    message ( STATUS "Applying patch: [${_patch_path}] to [${_gitdir_path}]" )
     execute_process ( COMMAND git reset --hard HEAD
-            WORKING_DIRECTORY ${_asio_path} )
+            WORKING_DIRECTORY ${_gitdir_path} )
     execute_process ( COMMAND git apply ${_patch_path}
-            WORKING_DIRECTORY ${_asio_path} )
+            WORKING_DIRECTORY ${_gitdir_path} )
 endmacro ( )
