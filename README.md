@@ -51,6 +51,11 @@ This project is released under the [Apache License 2.0](http://www.apache.org/li
 Changelog
 ---------
 
+**2015-11-15**
+
+ * version 1.3.2
+ * `alpine_amd64_gcc` toolchain added
+
 **2015-11-13**
 
  * version 1.3.1
