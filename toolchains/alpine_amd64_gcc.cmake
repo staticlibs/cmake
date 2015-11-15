@@ -17,6 +17,7 @@ cmake_minimum_required ( VERSION 2.8.12 )
 set ( CMAKE_BUILD_TYPE "Debug" CACHE STRING "Default build type" )
 
 set ( CMAKE_SYSTEM_NAME Generic )
+set ( UNIX 1 CACHE INTERNAL "" )
 set ( CMAKE_C_COMPILER gcc )
 set ( CMAKE_CXX_COMPILER g++ )
 set ( CMAKE_C_FLAGS "-static -static-libgcc -fPIC -DMUSL_LIBC" CACHE INTERNAL "" )
