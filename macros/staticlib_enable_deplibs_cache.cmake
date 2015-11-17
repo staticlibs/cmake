@@ -18,7 +18,7 @@ cmake_minimum_required ( VERSION 2.8.12 )
 
 macro ( staticlib_enable_deplibs_cache )
     if ( STATICLIB_USE_DEPLIBS_CACHE )
-        add_custom_target ( ${PROJECT_NAME}_CACHE ALL 
+        add_custom_target ( ${PROJECT_NAME}_CACHE_DEPLIBS 
                 COMMAND ${CMAKE_COMMAND} -E copy_directory
                 ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}
                 ${STATICLIB_DEPLIBS_CACHE_DIR} 
