@@ -34,6 +34,15 @@ if ( NOT DEFINED STATICLIB_ROOT_SOURCE_DIR )
     set ( CMAKE_ARCHIVE_OUTPUT_DIRECTORY_RELEASE ${STATICLIB_ROOT_BINARY_DIR}/bin CACHE INTERNAL "" )
 endif ( )
 
+# setup deplibs cache details
+option ( STATICLIB_USE_DEPLIBS_CACHE "Enable project-local cache for dependendency libs" OFF )
+if ( WIN32 )
+    set ( STATICLIB_USER_HOME_ENV_VARNAME HOMEPATH )
+else ( )
+    set ( STATICLIB_USER_HOME_ENV_VARNAME HOME )
+endif ( )
+set ( STATICLIB_DEPLIBS_CACHE_DIR "$ENV{${STATICLIB_USER_HOME_ENV_VARNAME}}/.staticlib_deplibs_cache/${PROJECT_NAME}/${STATICLIB_TOOLCHAIN}" CACHE INTERNAL "" )
+
 # include all macros
 file ( GLOB_RECURSE STATICLIB_COMMON_MACROS 
     ${STATICLIB_CMAKE}/macros/*.cmake )

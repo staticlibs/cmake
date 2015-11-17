@@ -51,6 +51,11 @@ This project is released under the [Apache License 2.0](http://www.apache.org/li
 Changelog
 ---------
 
+**2015-11-17**
+
+ * version 1.3.3
+ * support for deplibs cache
+
 **2015-11-15**
 
  * version 1.3.2
