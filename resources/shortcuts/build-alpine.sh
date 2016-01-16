@@ -19,7 +19,4 @@ cmake ../test \
 make
 make test
 
-cd ..
-cd build
-
 echo BUILD FINISHED

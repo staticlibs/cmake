@@ -22,7 +22,4 @@ cmake ../test -DCMAKE_BUILD_TYPE=Release
 make
 make test
 
-cd ..
-cd build
-
 echo BUILD FINISHED

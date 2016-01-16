@@ -11,7 +11,4 @@ cmake ../test -DSTATICLIB_TOOLCHAIN=linux_amd64_clang
 make
 make test
 
-cd ..
-cd build
-
 echo BUILD FINISHED

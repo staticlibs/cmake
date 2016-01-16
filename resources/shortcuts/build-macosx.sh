@@ -29,7 +29,4 @@ echo --- ios_i386_clang
 cmake ../test -DSTATICLIB_TOOLCHAIN=ios_i386_clang
 make
 
-cd ..
-cd build
-
 echo BUILD FINISHED

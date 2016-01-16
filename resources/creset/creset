@@ -16,6 +16,8 @@
 # Simple script to cleanup current CMake build dir
 # call it from build dir as ". creset"
 
+cd ..
+cd build
 if [ -d CMakeFiles ] ; then
     cd ..
     rm -rf build

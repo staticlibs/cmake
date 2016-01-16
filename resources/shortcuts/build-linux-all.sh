@@ -36,7 +36,4 @@ cmake ../test \
     -DRASPBERRY_TOOLCHAIN_DIR=/home/alex/apps/armv6-rpi-linux-gnueabihf/
 make
 
-cd ..
-cd build
-
 echo BUILD FINISHED
