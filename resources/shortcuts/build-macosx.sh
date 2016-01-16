@@ -2,9 +2,12 @@
 set -e
 set -x
 
+cd ..
+cd build
+
 echo --- default
 . creset
-cmake ..
+cmake .. -DCMAKE_CXX_FLAGS="--std=c++11"
 make
 
 echo --- macosx_amd64_clang
@@ -25,5 +28,8 @@ echo --- ios_i386_clang
 . creset
 cmake ../test -DSTATICLIB_TOOLCHAIN=ios_i386_clang
 make
+
+cd ..
+cd build
 
 echo BUILD FINISHED

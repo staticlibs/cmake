@@ -2,10 +2,12 @@
 set -e
 set -x
 
+cd ..
+cd build
 
 echo --- default
 . creset
-cmake ..
+cmake .. -DCMAKE_CXX_FLAGS="--std=c++11"
 make
 
 echo --- linux_amd64_gcc
@@ -33,5 +35,8 @@ cmake ../test \
     -DSTATICLIB_TOOLCHAIN=linux_armv6rpi_gcc \
     -DRASPBERRY_TOOLCHAIN_DIR=/home/alex/apps/armv6-rpi-linux-gnueabihf/
 make
+
+cd ..
+cd build
 
 echo BUILD FINISHED

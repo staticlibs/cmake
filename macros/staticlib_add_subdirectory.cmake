@@ -13,7 +13,7 @@
 # limitations under the License.
 
 cmake_minimum_required ( VERSION 2.8.12 )
-# call add_subdirectory using 'deps' prefix only if specified module is not yet added to main project
+# call add_subdirectory only if specified module is not yet added to main project
 
 macro ( staticlib_add_subdirectory _project_path )
     string ( REGEX REPLACE "^.*/" "" _target_name ${_project_path} )

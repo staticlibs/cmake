@@ -16,12 +16,6 @@ cmake ../test
 make
 make test
 
-echo --- linux_amd64_gcc_RELEASE
-. creset
-cmake ../test -DCMAKE_BUILD_TYPE=Release
-make
-make test
-
 cd ..
 cd build
 

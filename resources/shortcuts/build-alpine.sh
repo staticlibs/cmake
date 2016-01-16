@@ -2,6 +2,9 @@
 set -e
 set -x
 
+cd ..
+cd build
+
 echo --- alpine_amd64_gcc
 . creset
 cmake ../test -DSTATICLIB_TOOLCHAIN=alpine_amd64_gcc
@@ -15,5 +18,8 @@ cmake ../test \
     -DCMAKE_BUILD_TYPE=Release
 make
 make test
+
+cd ..
+cd build
 
 echo BUILD FINISHED
