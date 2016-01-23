@@ -1,0 +1,17 @@
+diff --git a/crypto/ui/ui_openssl.c b/crypto/ui/ui_openssl.c
+index 8bda83c..fb4d678 100644
+--- a/crypto/ui/ui_openssl.c
++++ b/crypto/ui/ui_openssl.c
+@@ -194,9 +194,9 @@
+ # undef  SGTTY
+ #endif
+ 
+-#if defined(linux) && !defined(TERMIO)
+-# undef  TERMIOS
+-# define TERMIO
++#if defined(linux)
++# define TERMIOS
++# undef  TERMIO
+ # undef  SGTTY
+ #endif
+ 
