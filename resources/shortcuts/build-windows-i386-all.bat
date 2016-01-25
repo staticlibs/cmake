@@ -6,7 +6,6 @@ rmdir /s /q build || exit /b
 mkdir build || exit /b
 cd build || exit /b
 cmake .. ^
-    -DSTATICLIB_USE_DEPLIBS_CACHE=ON ^
     || exit /b
 cmake --build . || exit /b
 

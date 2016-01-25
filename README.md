@@ -32,16 +32,26 @@ Doxygen
 `doxygen` directory contains a template for `Doxyfile` that is used to generate API documentation
 for Staticlibs projects.
 
-Crosstool
----------
+Resources - Creset
+------------------
+
+Helper script for cleaning CMake build directory.
+
+Resources - Crosstool
+---------------------
 
 `crosstool` directory contains configuration files for the [crosstool-NG](http://crosstool-ng.org/)
 toolchain building utility.
 
-Bin
----
+Resources - Musl
+----------------
 
-`bin` directory contains auxiliary bash and batch scripts to be used with CMake projects.
+Patches that are required for some third-party projects to support [musl libc](http://musl-libc.org/).
+
+Resources - Shortcuts
+---------------------
+
+Shortcut scripts for common building scenarios.
 
 License information
 -------------------
@@ -50,6 +60,11 @@ This project is released under the [Apache License 2.0](http://www.apache.org/li
 
 Changelog
 ---------
+
+**2016-01-25**
+
+ * version 1.3.5
+ * deplibs cache path fix on windows
 
 **2015-11-19**
 
