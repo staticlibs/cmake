@@ -32,24 +32,23 @@ Doxygen
 `doxygen` directory contains a template for `Doxyfile` that is used to generate API documentation
 for Staticlibs projects.
 
-Resources - Creset
-------------------
+Resources
+---------
+
+####Creset
 
 Helper script for cleaning CMake build directory.
 
-Resources - Crosstool
----------------------
+####Crosstool
 
 `crosstool` directory contains configuration files for the [crosstool-NG](http://crosstool-ng.org/)
 toolchain building utility.
 
-Resources - Musl
-----------------
+####Musl
 
 Patches that are required for some third-party projects to support [musl libc](http://musl-libc.org/).
 
-Resources - Shortcuts
----------------------
+####Shortcuts
 
 Shortcut scripts for common building scenarios.
 
