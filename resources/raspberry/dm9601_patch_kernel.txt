@@ -1,0 +1,16 @@
+# http://jumpstation.co.uk/flog/Jan2015.html#p190120151932
+# http://elinux.org/RPi_USB_Ethernet_adapters#Problem_Ethernet_adapters
+
+git clone --depth 1 --branch rpi-3.18.y https://github.com/raspberrypi/linux.git
+git clone https://github.com/kmtaylor/rpi_patches.git
+cd linux
+patch -p1 < ../rpi_patches/dm9601-bug.patch
+
+KERNEL_SRC=/home/pi/linux/
+make mrproper
+zcat /proc/config.gz > .config
+make oldconfig
+
+make
+sudo make modules_install
+sudo cp arch/arm/boot/zImage /boot/kernel.img
