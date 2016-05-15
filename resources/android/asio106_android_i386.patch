@@ -1,0 +1,13 @@
+diff --git a/asio/include/asio/impl/serial_port_base.ipp b/asio/include/asio/impl/serial_port_base.ipp
+index 57306d9..ae244a3 100644
+--- a/asio/include/asio/impl/serial_port_base.ipp
++++ b/asio/include/asio/impl/serial_port_base.ipp
+@@ -113,7 +113,7 @@ asio::error_code serial_port_base::baud_rate::store(
+     ec = asio::error::invalid_argument;
+     return ec;
+   }
+-# if defined(_BSD_SOURCE)
++# if defined(_BSD_SOURCE) && !defined(__ANDROID__)
+   ::cfsetspeed(&storage, baud);
+ # else
+   ::cfsetispeed(&storage, baud);
