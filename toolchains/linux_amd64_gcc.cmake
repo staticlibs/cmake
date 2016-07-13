@@ -34,5 +34,6 @@ if ( EXISTS "/usr/bin/valgrind" )
             --track-origins=yes
             --error-exitcode=42
             --track-fds=yes
+            --suppressions=${STATICLIB_CMAKE}/resources/valgrind/openssl_malloc.supp
             CACHE INTERNAL "" )
 endif ( )

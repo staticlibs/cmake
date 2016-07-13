@@ -1,0 +1,7 @@
+{
+   OpenSSL_CRYPTO_malloc
+   Memcheck:Leak
+   fun:malloc
+   fun:CRYPTO_malloc
+   ...
+}
