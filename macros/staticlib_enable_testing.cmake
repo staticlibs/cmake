@@ -32,7 +32,9 @@ macro ( staticlib_enable_testing _includes_var_name _libs_var_name _opts_var_nam
             add_executable ( ${_testname} ${CMAKE_CURRENT_LIST_DIR}/${_testsrc} )
             target_include_directories ( ${_testname} BEFORE PRIVATE ${${_includes_var_name}} )
             target_link_libraries ( ${_testname} ${${_libs_var_name}} )
-            set_property ( TARGET ${_testname} APPEND PROPERTY COMPILE_OPTIONS "${${_opts_var_name}}" )
+            foreach ( _opt ${${_opts_var_name}} )
+                set_property ( TARGET ${_testname} APPEND_STRING PROPERTY COMPILE_FLAGS " ${_opt}" )
+            endforeach ( )
             set_target_properties ( ${_testname} PROPERTIES FOLDER "test" )
             if ( DEFINED CMAKE_MEMORYCHECK_COMMAND )
                 add_test ( ${_testname} 
