@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-cmake_minimum_required ( VERSION 2.8.12 )
+cmake_minimum_required ( VERSION 2.8.11 )
 # collects test from 'test' directory (non-recursively) and register 
 # these test with ctest using memory checker (if available)
 # enabled only for top-level project
@@ -32,7 +32,8 @@ macro ( staticlib_enable_testing _includes_var_name _libs_var_name _opts_var_nam
             add_executable ( ${_testname} ${CMAKE_CURRENT_LIST_DIR}/${_testsrc} )
             target_include_directories ( ${_testname} BEFORE PRIVATE ${${_includes_var_name}} )
             target_link_libraries ( ${_testname} ${${_libs_var_name}} )
-            target_compile_options ( ${_testname} PRIVATE ${${_opts_var_name}} )
+            get_target_property ( ${_testname}_CFLAGS ${_testname} COMPILE_OPTIONS )
+            set_target_properties ( ${_testname} PROPERTIES COMPILE_OPTIONS ${${_testname}_CFLAGS} ${${_opts_var_name}} )
             set_target_properties ( ${_testname} PROPERTIES FOLDER "test" )
             if ( DEFINED CMAKE_MEMORYCHECK_COMMAND )
                 add_test ( ${_testname} 

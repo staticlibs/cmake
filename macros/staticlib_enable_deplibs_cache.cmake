@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-cmake_minimum_required ( VERSION 2.8.12 )
+cmake_minimum_required ( VERSION 2.8.11 )
 # if deplibs cache is enabled, copies library output directory to cache
 # option STATICLIB_USE_DEPLIBS_CACHE must be set explicitely
 

@@ -14,7 +14,7 @@
 
 # toolchain for linux: https://github.com/staticlibs/armv6-rpi-linux-gnueabihf
 
-cmake_minimum_required ( VERSION 2.8.12 )
+cmake_minimum_required ( VERSION 2.8.11 )
 
 set ( CMAKE_BUILD_TYPE "Debug" CACHE STRING "Default build type" )
 

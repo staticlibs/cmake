@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-cmake_minimum_required ( VERSION 2.8.12 )
+cmake_minimum_required ( VERSION 2.8.11 )
 # Configures Doxyfile for current project and runs Doxygen using it;
 # OFF by default,
 # to generate docs run: cmake with -DSTATICLIB_GENERATE_DOCS=ON
