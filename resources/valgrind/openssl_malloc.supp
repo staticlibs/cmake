@@ -1,7 +1,16 @@
 {
-   OpenSSL_CRYPTO_malloc
-   Memcheck:Leak
-   fun:malloc
-   fun:CRYPTO_malloc
-   ...
+    OpenSSL_CRYPTO_malloc
+    Memcheck:Leak
+    fun:malloc
+    fun:CRYPTO_malloc
+    ...
+}
+{
+    OpenSSL_CRYPTO_THREADID_current
+    Memcheck:Leak
+    ...
+    fun:CRYPTO_THREADID_current
+    fun:ERR_get_state
+    fun:ERR_clear_error
+    ...
 }
