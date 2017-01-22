@@ -13,8 +13,7 @@
 # limitations under the License.
 
 cmake_minimum_required ( VERSION 2.8.11 )
-
-set ( CMAKE_BUILD_TYPE "Debug" CACHE STRING "Default build type" )
+include ( ${CMAKE_CURRENT_LIST_DIR}/toolchains_common.cmake )
 
 set ( IOS_SDK_VERSION 8.1 CACHE STRING "iOS SDK version" )
 set ( IOS_DEVELOPER /Applications/Xcode.app/Contents/Developer CACHE INTERNAL "" )
@@ -33,7 +32,7 @@ set ( CMAKE_CXX_COMPILER ${IOS_DEVELOPER}/usr/bin/g++ CACHE INTERNAL "" )
 set ( CMAKE_C_FLAGS "-fPIC -arch ${IOS_ARCH} -pipe -no-cpp-precomp -isysroot ${CMAKE_SYSROOT} -miphoneos-version-min=7.0" CACHE INTERNAL "" )
 set ( CMAKE_C_FLAGS_DEBUG "-g -O0" CACHE INTERNAL "" )
 set ( CMAKE_C_FLAGS_RELEASE "-Os -DNDEBUG" CACHE INTERNAL "" )
-set ( CMAKE_CXX_FLAGS "--std=c++11 -fPIC -Wall -Werror -Wextra -arch ${IOS_ARCH} -pipe -no-cpp-precomp -isysroot ${CMAKE_SYSROOT} -miphoneos-version-min=7.0" CACHE INTERNAL "" )
+set ( CMAKE_CXX_FLAGS "${STATICLIB_COMMON_GPLUSPLUS_FLAGS} -arch ${IOS_ARCH} -pipe -no-cpp-precomp -isysroot ${CMAKE_SYSROOT} -miphoneos-version-min=7.0" CACHE INTERNAL "" )
 set ( CMAKE_CXX_FLAGS_DEBUG "-g -O0" CACHE INTERNAL "" )
 set ( CMAKE_CXX_FLAGS_RELEASE "-Os -DNDEBUG" CACHE INTERNAL "" )
 set ( CMAKE_EXE_LINKER_FLAGS "-arch ${IOS_ARCH} -pipe -no-cpp-precomp -isysroot ${CMAKE_SYSROOT} -miphoneos-version-min=7.0" CACHE INTERNAL "" )

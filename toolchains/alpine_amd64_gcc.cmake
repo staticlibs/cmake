@@ -13,8 +13,7 @@
 # limitations under the License.
 
 cmake_minimum_required ( VERSION 2.8.11 )
-
-set ( CMAKE_BUILD_TYPE "Debug" CACHE STRING "Default build type" )
+include ( ${CMAKE_CURRENT_LIST_DIR}/toolchains_common.cmake )
 
 set ( CMAKE_SYSTEM_NAME Generic )
 set ( UNIX 1 CACHE INTERNAL "" )
@@ -23,7 +22,7 @@ set ( CMAKE_CXX_COMPILER g++ )
 set ( CMAKE_C_FLAGS "-static -static-libgcc -fPIC -DMUSL_LIBC" CACHE INTERNAL "" )
 set ( CMAKE_C_FLAGS_DEBUG "-g -O0" CACHE INTERNAL "" )
 set ( CMAKE_C_FLAGS_RELEASE "-Os -DNDEBUG" CACHE INTERNAL "" )
-set ( CMAKE_CXX_FLAGS "-static -static-libgcc -static-libstdc++ -pthread --std=c++11 -fPIC -Wall -Werror -Wextra -Wno-cpp -DMUSL_LIBC" CACHE INTERNAL "" )
+set ( CMAKE_CXX_FLAGS "-static -static-libgcc -static-libstdc++ -pthread ${STATICLIB_COMMON_GPLUSPLUS_FLAGS} -Wno-cpp -DMUSL_LIBC" CACHE INTERNAL "" )
 set ( CMAKE_CXX_FLAGS_DEBUG "-g -O0" CACHE INTERNAL "" )
 set ( CMAKE_CXX_FLAGS_RELEASE "-Os -DNDEBUG" CACHE INTERNAL "" )
 # https://bugs.alpinelinux.org/issues/1579#note-5

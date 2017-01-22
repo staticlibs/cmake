@@ -15,8 +15,7 @@
 # toolchain for linux: https://github.com/staticlibs/armv6-rpi-linux-gnueabihf
 
 cmake_minimum_required ( VERSION 2.8.11 )
-
-set ( CMAKE_BUILD_TYPE "Debug" CACHE STRING "Default build type" )
+include ( ${CMAKE_CURRENT_LIST_DIR}/toolchains_common.cmake )
 
 set ( RASPBERRY_TOOLCHAIN_DIR "SPECIFY_ME_I_AM_RASPBERRY_TOOLCHAIN_DIR" CACHE STRING "toolchain dir" )
 set ( RASPBERRY_TOOLCHAIN_NAME armv6-rpi-linux-gnueabihf CACHE INTERNAL "" )
@@ -30,7 +29,7 @@ set ( CMAKE_CXX_COMPILER ${RASPBERRY_TOOLCHAIN_DIR}/bin/${RASPBERRY_TOOLCHAIN_NA
 set ( CMAKE_C_FLAGS "-fPIC --sysroot=${CMAKE_SYSROOT}" CACHE INTERNAL "" )
 set ( CMAKE_C_FLAGS_DEBUG "-g -O0" CACHE INTERNAL "" )
 set ( CMAKE_C_FLAGS_RELEASE "-Os -DNDEBUG" CACHE INTERNAL "" )
-set ( CMAKE_CXX_FLAGS "--std=c++11 -fPIC -Wall -Werror -Wextra -D_GLIBCXX_USE_NANOSLEEP -Wno-psabi --sysroot=${CMAKE_SYSROOT}" CACHE INTERNAL "" )
+set ( CMAKE_CXX_FLAGS "${STATICLIB_COMMON_GPLUSPLUS_FLAGS} -D_GLIBCXX_USE_NANOSLEEP -Wno-psabi --sysroot=${CMAKE_SYSROOT}" CACHE INTERNAL "" )
 set ( CMAKE_CXX_FLAGS_DEBUG "-g -O0" CACHE INTERNAL "" )
 set ( CMAKE_CXX_FLAGS_RELEASE "-Os -DNDEBUG" CACHE INTERNAL "" )
 set ( CMAKE_AR ${RASPBERRY_DEVROOT}/bin/ar CACHE INTERNAL "" )

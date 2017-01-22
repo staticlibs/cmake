@@ -15,8 +15,7 @@
 # toolchain for linux: https://github.com/staticlibs/android-ndk-r9d-x86-linux-android-4.8
 
 cmake_minimum_required ( VERSION 2.8.11 )
-
-set ( CMAKE_BUILD_TYPE "Debug" CACHE STRING "Default build type" )
+include ( ${CMAKE_CURRENT_LIST_DIR}/toolchains_common.cmake )
 
 set ( ANDROID_TOOLCHAIN_DIR "SPECIFY_ME_I_AM_ANDROID_TOOLCHAIN_DIR" CACHE STRING "toolchain dir" )
 set ( ANDROID_TOOLCHAIN_NAME i686-linux-android CACHE INTERNAL "" )
@@ -31,7 +30,7 @@ set ( CMAKE_CXX_COMPILER ${ANDROID_DEVROOT}/bin/g++ CACHE INTERNAL "" )
 set ( CMAKE_C_FLAGS "-fPIC -DANDROID -mandroid --sysroot=${CMAKE_SYSROOT}" CACHE INTERNAL "" )
 set ( CMAKE_C_FLAGS_DEBUG "-g -O0" CACHE INTERNAL "" )
 set ( CMAKE_C_FLAGS_RELEASE "-Os -DNDEBUG" CACHE INTERNAL "" )
-set ( CMAKE_CXX_FLAGS "--std=c++11 -fPIC -Wall -Werror -Wextra -DANDROID -mandroid --sysroot=${CMAKE_SYSROOT}" CACHE INTERNAL "" )
+set ( CMAKE_CXX_FLAGS "${STATICLIB_COMMON_GPLUSPLUS_FLAGS} -DANDROID -mandroid --sysroot=${CMAKE_SYSROOT}" CACHE INTERNAL "" )
 set ( CMAKE_CXX_FLAGS_DEBUG "-g -O0" CACHE INTERNAL "" )
 set ( CMAKE_CXX_FLAGS_RELEASE "-Os -DNDEBUG" CACHE INTERNAL "" )
 set ( CMAKE_EXE_LINKER_FLAGS "-DANDROID -mandroid" CACHE INTERNAL "" )

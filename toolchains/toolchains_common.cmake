@@ -1,4 +1,4 @@
-# Copyright 2015, alex at staticlibs.net
+# Copyright 2016, alex at staticlibs.net
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -13,14 +13,10 @@
 # limitations under the License.
 
 cmake_minimum_required ( VERSION 2.8.11 )
-include ( ${CMAKE_CURRENT_LIST_DIR}/toolchains_common.cmake )
 
-set ( CMAKE_SYSTEM_NAME Linux )
-set ( CMAKE_C_COMPILER gcc )
-set ( CMAKE_CXX_COMPILER g++ )
-set ( CMAKE_C_FLAGS "-m32 -fPIC" CACHE INTERNAL "" )
-set ( CMAKE_C_FLAGS_DEBUG "-g -O0" CACHE INTERNAL "" )
-set ( CMAKE_C_FLAGS_RELEASE "-Os -DNDEBUG" CACHE INTERNAL "" )
-set ( CMAKE_CXX_FLAGS "-m32 ${STATICLIB_COMMON_GPLUSPLUS_FLAGS}" CACHE INTERNAL "" )
-set ( CMAKE_CXX_FLAGS_DEBUG "-g -O0" CACHE INTERNAL "" )
-set ( CMAKE_CXX_FLAGS_RELEASE "-Os -DNDEBUG" CACHE INTERNAL "" )
+# default to Debug
+set ( CMAKE_BUILD_TYPE "Debug" CACHE STRING "Default build type" )
+
+# common g++ flags
+set ( STATICLIB_COMMON_GPLUSPLUS_FLAGS
+        "--std=c++11 -fPIC -Wall -Werror -Wextra -fno-strict-overflow -fno-strict-aliasing -fstack-protector-all" CACHE INTERNAL "" )

@@ -15,8 +15,7 @@
 # toolchain for linux: https://github.com/staticlibs/arm-cortexa7-linux-gnueabihf
 
 cmake_minimum_required ( VERSION 2.8.11 )
-
-set ( CMAKE_BUILD_TYPE "Debug" CACHE STRING "Default build type" )
+include ( ${CMAKE_CURRENT_LIST_DIR}/toolchains_common.cmake )
 
 set ( CORTEXA7_TOOLCHAIN_DIR "SPECIFY_ME_I_AM_CORTEXA7_TOOLCHAIN_DIR" CACHE STRING "toolchain dir" )
 set ( CORTEXA7_TOOLCHAIN_NAME arm-cortexa7-linux-gnueabihf CACHE INTERNAL "" )
@@ -30,7 +29,7 @@ set ( CMAKE_CXX_COMPILER ${CORTEXA7_TOOLCHAIN_DIR}/bin/${CORTEXA7_TOOLCHAIN_NAME
 set ( CMAKE_C_FLAGS "-fPIC --sysroot=${CMAKE_SYSROOT}" CACHE INTERNAL "" )
 set ( CMAKE_C_FLAGS_DEBUG "-g -O0" CACHE INTERNAL "" )
 set ( CMAKE_C_FLAGS_RELEASE "-Os -DNDEBUG" CACHE INTERNAL "" )
-set ( CMAKE_CXX_FLAGS "--std=c++11 -fPIC -Wall -Werror -Wextra -D_GLIBCXX_USE_NANOSLEEP -Wno-psabi --sysroot=${CMAKE_SYSROOT}" CACHE INTERNAL "" )
+set ( CMAKE_CXX_FLAGS "${STATICLIB_COMMON_GPLUSPLUS_FLAGS} -D_GLIBCXX_USE_NANOSLEEP -Wno-psabi --sysroot=${CMAKE_SYSROOT}" CACHE INTERNAL "" )
 set ( CMAKE_CXX_FLAGS_DEBUG "-g -O0" CACHE INTERNAL "" )
 set ( CMAKE_CXX_FLAGS_RELEASE "-Os -DNDEBUG" CACHE INTERNAL "" )
 set ( CMAKE_AR ${CORTEXA7_DEVROOT}/bin/ar CACHE INTERNAL "" )

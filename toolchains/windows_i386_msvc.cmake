@@ -13,8 +13,7 @@
 # limitations under the License.
 
 cmake_minimum_required ( VERSION 2.8.11 )
-
-set ( CMAKE_BUILD_TYPE "Debug" CACHE STRING "Default build type" )
+include ( ${CMAKE_CURRENT_LIST_DIR}/toolchains_common.cmake )
 
 set ( CMAKE_SYSTEM_NAME Windows )
 set ( CMAKE_C_COMPILER cl.exe )
