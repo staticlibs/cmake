@@ -14,7 +14,7 @@
 
 # toolchain for linux: https://github.com/staticlibs/android-ndk-r9d-x86-linux-android-4.8
 
-cmake_minimum_required ( VERSION 2.8.11 )
+cmake_minimum_required ( VERSION 2.8.12 )
 include ( ${CMAKE_CURRENT_LIST_DIR}/toolchains_common.cmake )
 
 set ( ANDROID_TOOLCHAIN_DIR "SPECIFY_ME_I_AM_ANDROID_TOOLCHAIN_DIR" CACHE STRING "toolchain dir" )

@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-cmake_minimum_required ( VERSION 2.8.11 )
+cmake_minimum_required ( VERSION 2.8.12 )
 
 # override some default options
 OPTION ( BUILD_SHARED_LIBS "Build shared libraries." OFF )

@@ -14,7 +14,7 @@
 
 # toolchain for linux: https://github.com/staticlibs/arm-cortexa7-linux-gnueabihf
 
-cmake_minimum_required ( VERSION 2.8.11 )
+cmake_minimum_required ( VERSION 2.8.12 )
 include ( ${CMAKE_CURRENT_LIST_DIR}/toolchains_common.cmake )
 
 set ( CORTEXA7_TOOLCHAIN_DIR "SPECIFY_ME_I_AM_CORTEXA7_TOOLCHAIN_DIR" CACHE STRING "toolchain dir" )

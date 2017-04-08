@@ -55,10 +55,15 @@ Shortcut scripts for common building scenarios.
 License information
 -------------------
 
-This project is released under the [Apache License 2.0](http://www.apache.org/licenses/LICENSE-2.0)
+This project is released under the [Apache License 2.0](http://www.apache.org/licenses/LICENSE-2.0).
 
 Changelog
 ---------
+
+**2017-04-28**
+
+ * version 1.3.6
+ * revert min cmake version to `2.8.12`
 
 **2016-01-25**
 

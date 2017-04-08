@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-cmake_minimum_required ( VERSION 2.8.11 )
+cmake_minimum_required ( VERSION 2.8.12 )
 include ( ${CMAKE_CURRENT_LIST_DIR}/toolchains_common.cmake )
 
 set ( CMAKE_SYSTEM_NAME Darwin )

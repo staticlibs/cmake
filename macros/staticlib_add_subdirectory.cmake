@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-cmake_minimum_required ( VERSION 2.8.11 )
+cmake_minimum_required ( VERSION 2.8.12 )
 # call add_subdirectory only if specified module is not yet added to main project
 
 macro ( staticlib_add_subdirectory _project_path )
