@@ -1,0 +1,8 @@
+{
+    popt_poptGetNextOpt
+    Memcheck:Leak
+    fun:malloc
+    ...
+    fun:poptGetNextOpt
+    ...
+}
