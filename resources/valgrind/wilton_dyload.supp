@@ -3,7 +3,15 @@
     Memcheck:Leak
     fun:malloc
     ...
-    fun:wilton::dyload::dyload_platform
+    fun:_dl_open
+    ...
+}
+{
+    wilton_dyload_malloc_error
+    Memcheck:Leak
+    fun:malloc
+    ...
+    fun:dlerror
     ...
 }
 {
@@ -11,7 +19,15 @@
     Memcheck:Leak
     fun:calloc
     ...
-    fun:wilton::dyload::dyload_platform
+    fun:_dl_open
+    ...
+}
+{
+    wilton_dyload_calloc_error
+    Memcheck:Leak
+    fun:calloc
+    ...
+    fun:_dlerror_run
     ...
 }
 
