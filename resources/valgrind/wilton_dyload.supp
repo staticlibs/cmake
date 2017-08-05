@@ -1,0 +1,17 @@
+{
+    wilton_dyload_malloc
+    Memcheck:Leak
+    fun:malloc
+    ...
+    fun:wilton::dyload::dyload_platform
+    ...
+}
+{
+    wilton_dyload_calloc
+    Memcheck:Leak
+    fun:calloc
+    ...
+    fun:wilton::dyload::dyload_platform
+    ...
+}
+
