@@ -31,3 +31,11 @@
     ...
 }
 
+{
+    wilton_dyload_malloc_error_xenial
+    Memcheck:Leak
+    fun:malloc
+    ...
+    fun:_dl_init
+    ...
+}
