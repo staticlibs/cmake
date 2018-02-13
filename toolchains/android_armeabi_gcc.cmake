@@ -15,7 +15,9 @@
 # toolchain for linux: https://github.com/staticlibs/android-ndk-r9d-arm-linux-androideabi-4.8
 
 cmake_minimum_required ( VERSION 2.8.12 )
-include ( ${CMAKE_CURRENT_LIST_DIR}/toolchains_common.cmake )
+
+# default to Debug
+set ( CMAKE_BUILD_TYPE "Debug" CACHE STRING "Default build type" )
 
 set ( ANDROID_TOOLCHAIN_NAME arm-linux-androideabi CACHE INTERNAL "" )
 set ( ANDROID_TOOLCHAIN_DIR "SPECIFY_ME_I_AM_ANDROID_TOOLCHAIN_DIR" CACHE STRING "" )
@@ -28,18 +30,81 @@ set ( CMAKE_HOST arm-eabi-linux )
 set ( CMAKE_SYSROOT ${ANDROID_TOOLCHAIN_DIR}/sysroot CACHE INTERNAL "" )
 set ( CMAKE_C_COMPILER ${ANDROID_TOOLCHAIN_PREFIX}-gcc CACHE INTERNAL "" )
 set ( CMAKE_CXX_COMPILER ${ANDROID_TOOLCHAIN_PREFIX}-g++ CACHE INTERNAL "" )
-set ( CMAKE_C_FLAGS "-fPIC -DANDROID -mandroid --sysroot=${CMAKE_SYSROOT}" )
-set ( CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -march=armv7-a -mthumb -mfloat-abi=softfp -mfpu=vfpv3-d16" )
+
+# CMAKE_C_FLAGS
+set ( CMAKE_C_FLAGS_LIST
+        -fPIC
+        -DANDROID
+        -mandroid
+        --sysroot=${CMAKE_SYSROOT}
+        -march=armv7-a
+        -mthumb
+        -mfloat-abi=softfp
+        -mfpu=vfpv3-d16 )
+set ( CMAKE_C_FLAGS "${CMAKE_C_FLAGS}  " )
+string ( REPLACE ";" " " CMAKE_C_FLAGS "${CMAKE_C_FLAGS_LIST}" )
 set ( CMAKE_C_FLAGS "${CMAKE_C_FLAGS}" CACHE INTERNAL "" )
-set ( CMAKE_C_FLAGS_DEBUG "-g -O0" CACHE INTERNAL "" )
-set ( CMAKE_C_FLAGS_RELEASE "-Os -DNDEBUG" CACHE INTERNAL "" )
-set ( CMAKE_CXX_FLAGS "${STATICLIB_COMMON_GPLUSPLUS_FLAGS} -Wlogical-op" )
-set ( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DANDROID -mandroid --sysroot=${CMAKE_SYSROOT}" )
-set ( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -march=armv7-a -mthumb -mfloat-abi=softfp -mfpu=vfpv3-d16" )
+
+# CMAKE_C_FLAGS_DEBUG
+set ( CMAKE_C_FLAGS_DEBUG_LIST
+        -g
+        -O0 )
+string ( REPLACE ";" " " CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS_DEBUG_LIST}" )
+set ( CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS_DEBUG}" CACHE INTERNAL "" )
+
+# CMAKE_C_FLAGS_RELEASE
+set ( CMAKE_C_FLAGS_RELEASE_LIST
+        -Os
+        -DNDEBUG )
+string ( REPLACE ";" " " CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE_LIST}" )
+set ( CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE}" CACHE INTERNAL "" )
+
+# CMAKE_CXX_FLAGS
+set ( CMAKE_CXX_FLAGS_LIST
+        --std=c++11
+        -fPIC
+        -Wall
+        -Werror
+        -Wextra
+        -fno-strict-overflow
+        -fno-strict-aliasing
+        -fstack-protector-all
+        -Wlogical-op
+        -DANDROID
+        -mandroid
+        --sysroot=${CMAKE_SYSROOT}
+        -march=armv7-a
+        -mthumb
+        -mfloat-abi=softfp
+        -mfpu=vfpv3-d16
+)
+string ( REPLACE ";" " " CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS_LIST}" )
 set ( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}" CACHE INTERNAL "" )
-set ( CMAKE_CXX_FLAGS_DEBUG "-g -O0" CACHE INTERNAL "" )
-set ( CMAKE_CXX_FLAGS_RELEASE "-Os -DNDEBUG" CACHE INTERNAL "" )
-set ( CMAKE_EXE_LINKER_FLAGS "-DANDROID -mandroid -march=armv7-a -mthumb -Wl,--fix-cortex-a8" CACHE INTERNAL "" )
+
+# CMAKE_CXX_FLAGS_DEBUG
+set ( CMAKE_CXX_FLAGS_DEBUG_LIST
+        -g
+        -O0 )
+string ( REPLACE ";" " " CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG_LIST}" )
+set ( CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG}" CACHE INTERNAL "" )
+
+# CMAKE_CXX_FLAGS_RELEASE
+set ( CMAKE_CXX_FLAGS_RELEASE_LIST
+        -Os
+        -DNDEBUG )
+string ( REPLACE ";" " " CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE_LIST}" )
+set ( CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE}" CACHE INTERNAL "" )
+
+# CMAKE_EXE_LINKER_FLAGS_LIST
+set ( CMAKE_EXE_LINKER_FLAGS_LIST
+        -DANDROID
+        -mandroid
+        -march=armv7-a
+        -mthumb
+        -Wl,--fix-cortex-a8 )
+string ( REPLACE ";" " " CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS_LIST}" )
+set ( CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS}" CACHE INTERNAL "" )
+
 set ( CMAKE_AR ${ANDROID_TOOLCHAIN_PREFIX}-ar CACHE INTERNAL "" )
 set ( CMAKE_AS ${ANDROID_TOOLCHAIN_PREFIX}-as CACHE INTERNAL "" )
 set ( CMAKE_LD ${ANDROID_TOOLCHAIN_PREFIX}-ld CACHE INTERNAL "" )

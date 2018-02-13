@@ -14,12 +14,12 @@
 
 cmake_minimum_required ( VERSION 2.8.12 )
 
+# default to Debug
+set ( CMAKE_BUILD_TYPE "Debug" CACHE STRING "Default build type" )
+
 set ( CMAKE_SYSTEM_NAME Linux )
 set ( CMAKE_C_COMPILER gcc )
 set ( CMAKE_CXX_COMPILER g++ )
-
-# default to Debug
-set ( CMAKE_BUILD_TYPE "Debug" CACHE STRING "Default build type" )
 
 # CMAKE_C_FLAGS
 set ( CMAKE_C_FLAGS_LIST
@@ -31,16 +31,14 @@ set ( CMAKE_C_FLAGS "${CMAKE_C_FLAGS}" CACHE INTERNAL "" )
 # CMAKE_C_FLAGS_DEBUG
 set ( CMAKE_C_FLAGS_DEBUG_LIST
         -g
-        -O0
-)
+        -O0 )
 string ( REPLACE ";" " " CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS_DEBUG_LIST}" )
 set ( CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS_DEBUG}" CACHE INTERNAL "" )
 
 # CMAKE_C_FLAGS_RELEASE
 set ( CMAKE_C_FLAGS_RELEASE_LIST
         -Os
-        -DNDEBUG
-)
+        -DNDEBUG )
 string ( REPLACE ";" " " CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE_LIST}" )
 set ( CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE}" CACHE INTERNAL "" )
 
@@ -53,24 +51,21 @@ set ( CMAKE_CXX_FLAGS_LIST
         -Wextra
         -fno-strict-overflow
         -fno-strict-aliasing
-        -fstack-protector-all
-)
+        -fstack-protector-all )
 string ( REPLACE ";" " " CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS_LIST}" )
 set ( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}" CACHE INTERNAL "" )
 
 # CMAKE_CXX_FLAGS_DEBUG
 set ( CMAKE_CXX_FLAGS_DEBUG_LIST
         -g
-        -O0
-)
+        -O0 )
 string ( REPLACE ";" " " CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG_LIST}" )
 set ( CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG}" CACHE INTERNAL "" )
 
 # CMAKE_CXX_FLAGS_RELEASE
 set ( CMAKE_CXX_FLAGS_RELEASE_LIST
         -Os
-        -DNDEBUG
-)
+        -DNDEBUG )
 string ( REPLACE ";" " " CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE_LIST}" )
 set ( CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE}" CACHE INTERNAL "" )
 
