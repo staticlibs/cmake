@@ -13,14 +13,58 @@
 # limitations under the License.
 
 cmake_minimum_required ( VERSION 2.8.12 )
-include ( ${CMAKE_CURRENT_LIST_DIR}/toolchains_common.cmake )
+
+# default to Debug
+set ( CMAKE_BUILD_TYPE "Debug" CACHE STRING "Default build type" )
 
 set ( CMAKE_SYSTEM_NAME Darwin )
 set ( CMAKE_C_COMPILER clang )
 set ( CMAKE_CXX_COMPILER )
-set ( CMAKE_C_FLAGS "-fPIC" CACHE INTERNAL "" )
-set ( CMAKE_C_FLAGS_DEBUG "-g -O0" CACHE INTERNAL "" )
-set ( CMAKE_C_FLAGS_RELEASE "-Os -DNDEBUG" CACHE INTERNAL "" )
-set ( CMAKE_CXX_FLAGS "${STATICLIB_COMMON_GPLUSPLUS_FLAGS}" CACHE INTERNAL "" )
-set ( CMAKE_CXX_FLAGS_DEBUG "-g -O0" CACHE INTERNAL "" )
-set ( CMAKE_CXX_FLAGS_RELEASE "-Os -DNDEBUG" CACHE INTERNAL "" )
+
+# CMAKE_C_FLAGS
+set ( CMAKE_C_FLAGS_LIST
+        -fPIC
+)
+string ( REPLACE ";" " " CMAKE_C_FLAGS "${CMAKE_C_FLAGS_LIST}" )
+set ( CMAKE_C_FLAGS "${CMAKE_C_FLAGS}" CACHE INTERNAL "" )
+
+# CMAKE_C_FLAGS_DEBUG
+set ( CMAKE_C_FLAGS_DEBUG_LIST
+        -g
+        -O0 )
+string ( REPLACE ";" " " CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS_DEBUG_LIST}" )
+set ( CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS_DEBUG}" CACHE INTERNAL "" )
+
+# CMAKE_C_FLAGS_RELEASE
+set ( CMAKE_C_FLAGS_RELEASE_LIST
+        -Os
+        -DNDEBUG )
+string ( REPLACE ";" " " CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE_LIST}" )
+set ( CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE}" CACHE INTERNAL "" )
+
+# CMAKE_CXX_FLAGS
+set ( CMAKE_CXX_FLAGS_LIST
+        --std=c++11
+        -fPIC
+        -Wall
+        -Werror
+        -Wextra
+        -fno-strict-overflow
+        -fno-strict-aliasing
+        -fstack-protector-all )
+string ( REPLACE ";" " " CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS_LIST}" )
+set ( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}" CACHE INTERNAL "" )
+
+# CMAKE_CXX_FLAGS_DEBUG
+set ( CMAKE_CXX_FLAGS_DEBUG_LIST
+        -g
+        -O0 )
+string ( REPLACE ";" " " CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG_LIST}" )
+set ( CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG}" CACHE INTERNAL "" )
+
+# CMAKE_CXX_FLAGS_RELEASE
+set ( CMAKE_CXX_FLAGS_RELEASE_LIST
+        -Os
+        -DNDEBUG )
+string ( REPLACE ";" " " CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE_LIST}" )
+set ( CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE}" CACHE INTERNAL "" )
