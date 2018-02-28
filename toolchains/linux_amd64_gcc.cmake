@@ -23,8 +23,7 @@ set ( CMAKE_CXX_COMPILER g++ )
 
 # CMAKE_C_FLAGS
 set ( CMAKE_C_FLAGS_LIST
-        -fPIC
-)
+        -fPIC )
 string ( REPLACE ";" " " CMAKE_C_FLAGS "${CMAKE_C_FLAGS_LIST}" )
 set ( CMAKE_C_FLAGS "${CMAKE_C_FLAGS}" CACHE INTERNAL "" )
 

@@ -19,12 +19,11 @@ set ( CMAKE_BUILD_TYPE "Debug" CACHE STRING "Default build type" )
 
 set ( CMAKE_SYSTEM_NAME Darwin )
 set ( CMAKE_C_COMPILER clang )
-set ( CMAKE_CXX_COMPILER )
+set ( CMAKE_CXX_COMPILER clang++ )
 
 # CMAKE_C_FLAGS
 set ( CMAKE_C_FLAGS_LIST
-        -fPIC
-)
+        -fPIC )
 string ( REPLACE ";" " " CMAKE_C_FLAGS "${CMAKE_C_FLAGS_LIST}" )
 set ( CMAKE_C_FLAGS "${CMAKE_C_FLAGS}" CACHE INTERNAL "" )
 
