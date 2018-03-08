@@ -34,6 +34,15 @@ if ( NOT DEFINED STATICLIB_ROOT_SOURCE_DIR )
     set ( CMAKE_ARCHIVE_OUTPUT_DIRECTORY_RELEASE ${STATICLIB_ROOT_BINARY_DIR}/bin CACHE INTERNAL "" )
 endif ( )
 
+# introduce suffix var for debuginfo files
+if ( WIN32 )
+    set ( STATICLIB_DEBUGINFO_SHARED_SUFFIX .pdb CACHE INTERNAL "" )
+    set ( STATICLIB_DEBUGINFO_EXE_SUFFIX .pdb CACHE INTERNAL "" )
+else ( )
+    set ( STATICLIB_DEBUGINFO_SHARED_SUFFIX .so.debug CACHE INTERNAL "" )
+    set ( STATICLIB_DEBUGINFO_EXE_SUFFIX .debug CACHE INTERNAL "" )
+endif ( )
+
 # setup deplibs cache details
 option ( STATICLIB_USE_DEPLIBS_CACHE "Enable project-local cache for dependendency libs" OFF )
 if ( WIN32 )
