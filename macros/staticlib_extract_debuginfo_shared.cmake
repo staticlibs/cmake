@@ -15,7 +15,21 @@
 cmake_minimum_required ( VERSION 2.8.12 )
 
 macro ( staticlib_extract_debuginfo_shared _target_name )
-    if ( NOT WIN32 )
+    if ( WIN32 )
+        # no-op
+    elseif ( APPLE )
+        add_custom_command ( TARGET ${_target_name} POST_BUILD
+                COMMAND dsymutil
+                        ${CMAKE_SHARED_LIBRARY_PREFIX}${_target_name}${CMAKE_SHARED_LIBRARY_SUFFIX}
+                        -o
+                        ${CMAKE_SHARED_LIBRARY_PREFIX}${_target_name}.dSYM
+                COMMAND zip
+                        -qr0
+                        ${CMAKE_SHARED_LIBRARY_PREFIX}${_target_name}${STATICLIB_DEBUGINFO_SHARED_SUFFIX}
+                        ${CMAKE_SHARED_LIBRARY_PREFIX}${_target_name}.dSYM
+                WORKING_DIRECTORY ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}
+                COMMENT "Extracting debuginfo into: [${CMAKE_SHARED_LIBRARY_PREFIX}${_target_name}${STATICLIB_DEBUGINFO_SHARED_SUFFIX}]" )
+    else ( )
         add_custom_command ( TARGET ${_target_name} POST_BUILD
                 COMMAND ${CMAKE_OBJCOPY}
                         --only-keep-debug
