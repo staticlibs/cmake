@@ -28,7 +28,7 @@ macro ( staticlib_extract_debuginfo_executable _target_name )
                         ${CMAKE_EXECUTABLE_PREFIX}${_target_name}${STATICLIB_DEBUGINFO_EXE_SUFFIX}
                         ${CMAKE_EXECUTABLE_PREFIX}${_target_name}.dSYM
                 WORKING_DIRECTORY ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}
-                COMMENT "Extracting debuginfo into: [${CMAKE_SHARED_LIBRARY_PREFIX}${_target_name}${STATICLIB_DEBUGINFO_SHARED_SUFFIX}]" )
+                COMMENT "Extracting debuginfo into: [${CMAKE_EXECUTABLE_PREFIX}${_target_name}${STATICLIB_DEBUGINFO_EXE_SUFFIX}]" )
     else ( )
         add_custom_command ( TARGET ${_target_name} POST_BUILD
                 COMMAND ${CMAKE_OBJCOPY}
